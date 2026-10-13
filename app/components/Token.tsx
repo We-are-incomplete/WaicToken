@@ -78,7 +78,7 @@ export default function Token() {
         display: 'grid', 
         gridTemplateColumns: '1fr 1fr 1fr 2fr', 
         gap: '8px',
-        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
         padding: '16px 8px',
         borderRadius: '16px',
         boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
@@ -136,7 +136,7 @@ export default function Token() {
 
       {/* 🎲 サイコロエリア */}
       <div style={{ 
-        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
+        backgroundColor: 'rgba(255, 255, 255, 0.85)',
         padding: '16px', 
         borderRadius: '20px',
         boxShadow: '0 4px 12px rgba(0,0,0,0.05)', 
@@ -252,20 +252,29 @@ export default function Token() {
 
       </div>
 
-      {/* ℹ️ タップして開ける詳細情報エリア */}
+      {/* ℹ️ 台紙なしの開閉式詳細情報エリア（白文字） */}
       <details style={{
-        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
-        borderRadius: '16px',
-        padding: '12px 16px',
-        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
         cursor: 'pointer',
-        color: '#333',
-        fontSize: '14px'
+        color: '#fff', // 白文字
+        fontSize: '14px',
+        padding: '4px 8px'
       }}>
-        <summary style={{ fontWeight: 'bold', outline: 'none', userSelect: 'none' }}>
-          サイトについて（タップして開閉）
+        <summary style={{ fontWeight: 'bold', outline: 'none', userSelect: 'none', textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
+          このサイトについて（タップして開閉）
         </summary>
-        <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px', lineHeight: '1.6' }}>
+        {/* 開いたときだけ出現する、不透明度0.85の白い台紙 */}
+        <div style={{
+          marginTop: '8px',
+          backgroundColor: 'rgba(255, 255, 255, 0.85)',
+          borderRadius: '16px',
+          padding: '16px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+          color: '#333',
+          display: 'flex', 
+          flexDirection: 'column', 
+          gap: '8px', 
+          lineHeight: '1.6'
+        }}>
           <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#111', margin: 0 }}>
             KCGトークンサイト
           </h2>
@@ -273,7 +282,7 @@ export default function Token() {
             このサイトは、神椿TCG（KAMITSUBAKI CARD GAME）のトークンをスマホ上で管理するための非公式サイトです。
           </p>
           <p style={{ margin: 0 }}>
-            このサイト上では、トークンの管理と乱数（サイコロの出目）生成以外のことは行っていません。
+            サイト上では、<strong>トークンの管理と乱数（サイコロの出目）生成以外のことは行っていません。</strong>
           </p>
           <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
             ※当サイトは個人が作成した非公式ツールであり、株式会社KAMITSUBAKI STUDIO様および関係各社様とは一切関係ありません。
