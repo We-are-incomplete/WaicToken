@@ -1,4 +1,3 @@
-// app/components/Token.tsx
 'use client';
 
 import { useState } from 'react';
@@ -79,7 +78,7 @@ export default function Token() {
         display: 'grid', 
         gridTemplateColumns: '1fr 1fr 1fr 2fr', 
         gap: '8px',
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
         padding: '16px 8px',
         borderRadius: '16px',
         boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
@@ -137,8 +136,14 @@ export default function Token() {
 
       {/* 🎲 サイコロエリア */}
       <div style={{ 
-        backgroundColor: '#fff', padding: '16px', borderRadius: '20px',
-        boxShadow: '0 4px 12px rgba(0,0,0,0.05)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px'
+        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
+        padding: '16px', 
+        borderRadius: '20px',
+        boxShadow: '0 4px 12px rgba(0,0,0,0.05)', 
+        display: 'flex', 
+        flexDirection: 'column', 
+        alignItems: 'center', 
+        gap: '14px'
       }}>
         {/* 出目表示 */}
         <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', minHeight: '54px', flexWrap: 'wrap', width: '100%' }}>
@@ -187,7 +192,7 @@ export default function Token() {
         </div>
       </div>
 
-      {/* 🎛️ スライドスイッチ & 🔄 リセットボタン（高さ85px、4:1の比率で横並び） */}
+      {/* 🎛️ スライドスイッチ & 🔄 リセットボタン */}
       <div style={{ display: 'flex', gap: '8px', width: '100%', alignItems: 'center' }}>
         
         {/* 左側 4/5：スライドスイッチ */}
@@ -208,11 +213,10 @@ export default function Token() {
             overflow: 'hidden'
           }}
         >
-          {/* スライドする丸いツマミ（opacity: 0.6 を追加して40%透明に設定） */}
           <div style={{
             position: 'absolute',
             top: '15px',
-            left: isTokenActive ? '15px' : 'calc(100% - 80px)',
+            left: isTokenActive ? '15px' : 'calc(100% - 65px)',
             width: '50px',
             height: '50px',
             backgroundColor: '#fcfbf8',
@@ -247,6 +251,38 @@ export default function Token() {
         </button>
 
       </div>
+
+      {/* ℹ️ タップして開ける詳細情報エリア */}
+      <details style={{
+        backgroundColor: 'rgba(255, 255, 255, 0.85)', // 不透明度0.85
+        borderRadius: '16px',
+        padding: '12px 16px',
+        boxShadow: '0 2px 8px rgba(0,0,0,0.05)',
+        cursor: 'pointer',
+        color: '#333',
+        fontSize: '14px'
+      }}>
+        <summary style={{ fontWeight: 'bold', outline: 'none', userSelect: 'none' }}>
+          サイトについて（タップして開閉）
+        </summary>
+        <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px', lineHeight: '1.6' }}>
+          <h2 style={{ fontSize: '18px', fontWeight: 'bold', color: '#111', margin: 0 }}>
+            KCGトークンサイト
+          </h2>
+          <p style={{ margin: 0 }}>
+            このサイトは、神椿TCG（KAMITSUBAKI CARD GAME）のトークンをスマホ上で管理するための非公式サイトです。
+          </p>
+          <p style={{ margin: 0 }}>
+            このサイト上では、トークンの管理と乱数（サイコロの出目）生成以外のことは行っていません。
+          </p>
+          <p style={{ margin: 0, fontSize: '13px', color: '#666' }}>
+            ※当サイトは個人が作成した非公式ツールであり、株式会社KAMITSUBAKI STUDIO様および関係各社様とは一切関係ありません。
+          </p>
+          <p style={{ margin: 0 }}>
+            問題等あれば、ラズ（X：<a href="https://twitter.com/Lazu_village_" target="_blank" rel="noopener noreferrer" style={{ color: '#0070f3', textDecoration: 'underline' }}>@Lazu_village_</a>）までご連絡ください。
+          </p>
+        </div>
+      </details>
 
     </div>
   );
